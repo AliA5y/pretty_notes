@@ -7,15 +7,25 @@ class NotesAppBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 12),
+      padding: const EdgeInsets.only(left: 16, right: 16, top: 8),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           const Text(
             'Notes',
-            style: TextStyle(fontSize: 18),
+            style: TextStyle(
+              fontSize: 28,
+            ),
           ),
-          ActionBottun(icon: Icons.search, onPressed: () {})
+          Row(
+            children: [
+              ActionBottun(icon: Icons.brightness_4, onTap: () {}),
+              SizedBox(
+                width: 12,
+              ),
+              ActionBottun(icon: Icons.search, onTap: () {}),
+            ],
+          )
         ],
       ),
     );
