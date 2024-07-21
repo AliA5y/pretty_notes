@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pretty_notes/views/home.dart';
 
 void main() {
   runApp(const PrettyNotesApp());
@@ -9,6 +10,8 @@ class PrettyNotesApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp();
+    return const MaterialApp(
+      home: HomeView(),
+    );
   }
 }
