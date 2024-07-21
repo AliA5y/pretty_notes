@@ -7,17 +7,18 @@ class ActionBottun extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.all(8),
-      decoration: BoxDecoration(
-          color: Colors.black.withOpacity(0.2),
-          borderRadius: const BorderRadius.all(Radius.circular(16))),
-      child: GestureDetector(
-          onTap: onTap,
-          child: Icon(
-            icon,
-            size: 30,
-          )),
+    return GestureDetector(
+      onTap: onTap,
+      child: Container(
+        padding: const EdgeInsets.all(8),
+        decoration: BoxDecoration(
+            color: Colors.black.withOpacity(0.2),
+            borderRadius: const BorderRadius.all(Radius.circular(16))),
+        child: Icon(
+          icon,
+          size: 30,
+        ),
+      ),
     );
   }
 }

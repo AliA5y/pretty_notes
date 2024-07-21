@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pretty_notes/views/widgets/note_card.dart';
 import 'package:pretty_notes/views/widgets/notes_app_bar.dart';
 
 class HomeViewBody extends StatelessWidget {
@@ -10,6 +11,7 @@ class HomeViewBody extends StatelessWidget {
       children: [
         NotesAppBar(),
         SizedBox(height: 50),
+        NoteCard(),
       ],
     );
   }
