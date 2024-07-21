@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:pretty_notes/views/widgets/note_card.dart';
 import 'package:pretty_notes/views/widgets/notes_app_bar.dart';
+import 'package:pretty_notes/views/widgets/notes_list_view.dart';
 
 class HomeViewBody extends StatelessWidget {
   const HomeViewBody({super.key});
@@ -10,8 +10,8 @@ class HomeViewBody extends StatelessWidget {
     return const Column(
       children: [
         NotesAppBar(),
-        SizedBox(height: 50),
-        NoteCard(),
+        SizedBox(height: 16),
+        Expanded(child: NotesListView()),
       ],
     );
   }
