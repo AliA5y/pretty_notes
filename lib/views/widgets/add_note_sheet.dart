@@ -11,23 +11,46 @@ class AddNoteSheet extends StatelessWidget {
     return const Padding(
       padding: EdgeInsets.all(16.0),
       child: SingleChildScrollView(
-        child: Column(
-          children: [
-            CustomTextFormField(
-              hint: 'Note title',
-            ),
-            SizedBox(height: 16),
-            CustomTextFormField(
-              hint: 'Note content',
-              maxLength: 12,
-            ),
-            SizedBox(height: 16),
-            SubmitButton(
-              label: 'Add Note',
-            ),
-            SizedBox(height: 10),
-          ],
-        ),
+        child: AddNoteForm(),
+      ),
+    );
+  }
+}
+
+class AddNoteForm extends StatefulWidget {
+  const AddNoteForm({
+    super.key,
+  });
+
+  @override
+  State<AddNoteForm> createState() => _AddNoteFormState();
+}
+
+class _AddNoteFormState extends State<AddNoteForm> {
+  final GlobalKey<FormState> formKey = GlobalKey();
+  AutovalidateMode autovalidateMode = AutovalidateMode.disabled;
+
+  @override
+  Widget build(BuildContext context) {
+    return Form(
+      autovalidateMode: autovalidateMode,
+      key: formKey,
+      child: const Column(
+        children: [
+          CustomTextFormField(
+            hint: 'Note title',
+          ),
+          SizedBox(height: 16),
+          CustomTextFormField(
+            hint: 'Note content',
+            maxLength: 12,
+          ),
+          SizedBox(height: 16),
+          SubmitButton(
+            label: 'Add Note',
+          ),
+          SizedBox(height: 10),
+        ],
       ),
     );
   }

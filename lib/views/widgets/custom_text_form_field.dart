@@ -6,12 +6,15 @@ class CustomTextFormField extends StatelessWidget {
     super.key,
     this.maxLength,
     required this.hint,
+    this.initialText,
   });
   final int? maxLength;
   final String hint;
+  final String? initialText;
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      initialValue: initialText,
       maxLines: maxLength ?? 1,
       decoration: InputDecoration(
           hintText: hint,
