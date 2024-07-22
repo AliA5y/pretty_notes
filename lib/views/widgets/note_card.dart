@@ -26,7 +26,7 @@ class NoteCard extends StatelessWidget {
                   contentPadding: const EdgeInsets.all(0),
                   title: const Text(
                     'Note Title',
-                    style: TextStyle(fontSize: 28),
+                    style: TextStyle(fontSize: 28, color: Colors.white),
                   ),
                   subtitle: const Text(
                     'Note Text kjklfg lkdjfg lkdjfglkjsd glkdjglk dglksdjgklds gldskjg sdglkjdsklg dslkjglksd glkdsjglk sdglksdjg ',
@@ -39,6 +39,7 @@ class NoteCard extends StatelessWidget {
                       icon: const Icon(
                         Icons.edit,
                         size: 26,
+                        color: Colors.white,
                       )),
                 ),
                 const SizedBox(height: 10),
@@ -55,6 +56,7 @@ class NoteCard extends StatelessWidget {
                         icon: const Icon(
                           Icons.delete,
                           size: 26,
+                          color: Colors.white,
                         )),
                   ],
                 ),
