@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:pretty_notes/views/widgets/custom_text_form_field.dart';
@@ -8,10 +9,16 @@ class AddNoteSheet extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Padding(
-      padding: EdgeInsets.all(16.0),
-      child: SingleChildScrollView(
-        child: AddNoteForm(),
+    return SafeArea(
+      child: Padding(
+        padding: EdgeInsets.only(
+            top: 32,
+            left: 16,
+            right: 16,
+            bottom: MediaQuery.of(context).viewInsets.bottom),
+        child: const SingleChildScrollView(
+          child: AddNoteForm(),
+        ),
       ),
     );
   }
