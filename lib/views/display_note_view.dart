@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:pretty_notes/models/note_model.dart';
 
-class DisplayNoteView extends StatelessWidget {
-  // final NoteModel note;
+class ViewNoteView extends StatelessWidget {
+  final NoteModel note;
 
-  const DisplayNoteView({super.key});
+  const ViewNoteView({super.key, required this.note});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          // note.title,
-          'Title',
+          note.title,
           style: const TextStyle(
             fontSize: 24.0,
             fontWeight: FontWeight.bold,
@@ -24,8 +24,7 @@ class DisplayNoteView extends StatelessWidget {
           scrollDirection: Axis.vertical,
           physics: const AlwaysScrollableScrollPhysics(),
           child: Text(
-            // note.content,
-            'Content',
+            note.subtitle,
             style: const TextStyle(fontSize: 18.0),
           ),
         ),
