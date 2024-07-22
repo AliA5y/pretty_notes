@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pretty_notes/constants.dart';
 import 'package:pretty_notes/views/home_view_body.dart';
 import 'package:pretty_notes/views/widgets/add_note_sheet.dart';
 
@@ -12,6 +13,7 @@ class HomeView extends StatelessWidget {
         child: HomeViewBody(),
       ),
       floatingActionButton: FloatingActionButton(
+        backgroundColor: kPremaryColor,
         onPressed: () {
           showModalBottomSheet(
               isScrollControlled: true,
