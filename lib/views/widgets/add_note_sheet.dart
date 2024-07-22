@@ -24,7 +24,8 @@ class AddNoteSheet extends StatelessWidget {
             SizedBox(height: 16),
             SubmitButton(
               label: 'Save Note',
-            )
+            ),
+            SizedBox(height: 10),
           ],
         ),
       ),
