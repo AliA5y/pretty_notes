@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pretty_notes/constants.dart';
 import 'package:pretty_notes/views/widgets/note_card.dart';
 
 class NotesListView extends StatelessWidget {
@@ -10,7 +11,9 @@ class NotesListView extends StatelessWidget {
       padding: EdgeInsets.all(0),
       itemCount: 10,
       itemBuilder: (context, index) {
-        return NoteCard();
+        return NoteCard(
+          color: colors[index % colors.length],
+        );
       },
     );
   }

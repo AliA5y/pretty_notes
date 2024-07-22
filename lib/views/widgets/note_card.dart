@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 
 class NoteCard extends StatelessWidget {
-  const NoteCard({super.key, this.onTap});
+  const NoteCard({super.key, this.onTap, required this.color});
   final void Function()? onTap;
+  final Color color;
 
   @override
   Widget build(BuildContext context) {
@@ -12,9 +13,9 @@ class NoteCard extends StatelessWidget {
         onTap: () {},
         child: Container(
             padding: const EdgeInsets.symmetric(horizontal: 28, vertical: 8),
-            decoration: const BoxDecoration(
-              color: Colors.teal,
-              borderRadius: BorderRadius.all(
+            decoration: BoxDecoration(
+              color: color,
+              borderRadius: const BorderRadius.all(
                 Radius.circular(16),
               ),
             ),
