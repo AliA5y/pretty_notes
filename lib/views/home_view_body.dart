@@ -1,4 +1,8 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:pretty_notes/cubits/cubit/theme_cubit.dart';
 import 'package:pretty_notes/views/widgets/notes_app_bar.dart';
 import 'package:pretty_notes/views/widgets/notes_list_view.dart';
 
@@ -7,11 +11,18 @@ class HomeViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Column(
+    return Column(
       children: [
-        NotesAppBar(),
-        SizedBox(height: 16),
-        Expanded(child: NotesListView()),
+        NotesAppBar(
+          mainActionIcon: Icons.check,
+          isHome: true,
+          themeTap: () {
+            log('message');
+            context.read<ThemeCubit>().toggleTheme();
+          },
+        ),
+        const SizedBox(height: 16),
+        const Expanded(child: NotesListView()),
       ],
     );
   }

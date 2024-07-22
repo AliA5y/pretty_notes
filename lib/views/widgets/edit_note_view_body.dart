@@ -10,7 +10,10 @@ class EditNoteViewBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return const Column(
       children: [
-        NotesAppBar(),
+        NotesAppBar(
+          mainActionIcon: Icons.search,
+          isHome: false,
+        ),
         Padding(
           padding: EdgeInsets.all(16.0),
           child: SingleChildScrollView(

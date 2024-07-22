@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hive_flutter/adapters.dart';
 import 'package:pretty_notes/constants.dart';
+import 'package:pretty_notes/cubits/cubit/theme_cubit.dart';
 import 'package:pretty_notes/views/home.dart';
 
 void main() async {
@@ -14,10 +16,17 @@ class PrettyNotesApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(brightness: Brightness.dark),
-      home: const HomeView(),
+    return BlocProvider(
+      create: (context) => ThemeCubit(),
+      child: BlocBuilder<ThemeCubit, Brightness>(
+        builder: (context, state) {
+          return MaterialApp(
+            debugShowCheckedModeBanner: false,
+            theme: ThemeData(brightness: state),
+            home: const HomeView(),
+          );
+        },
+      ),
     );
   }
 }
