@@ -11,7 +11,7 @@ class EditNoteViewBody extends StatelessWidget {
     return const Column(
       children: [
         NotesAppBar(
-          mainActionIcon: Icons.search,
+          mainActionIcon: Icons.check,
           isHome: false,
         ),
         Padding(

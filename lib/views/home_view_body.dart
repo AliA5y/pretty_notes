@@ -14,10 +14,9 @@ class HomeViewBody extends StatelessWidget {
     return Column(
       children: [
         NotesAppBar(
-          mainActionIcon: Icons.check,
+          mainActionIcon: Icons.search,
           isHome: true,
           themeTap: () {
-            log('message');
             context.read<ThemeCubit>().toggleTheme();
           },
         ),
