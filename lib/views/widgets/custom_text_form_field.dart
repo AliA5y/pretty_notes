@@ -4,12 +4,17 @@ import 'package:pretty_notes/constants.dart';
 class CustomTextFormField extends StatelessWidget {
   const CustomTextFormField({
     super.key,
+    this.maxLength,
+    required this.hint,
   });
-
+  final int? maxLength;
+  final String hint;
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      maxLines: maxLength ?? 1,
       decoration: InputDecoration(
+          hintText: hint,
           border: buildBoarder(),
           enabledBorder: buildBoarder(),
           focusedBorder: buildBoarder(kPremaryColor)),
