@@ -6,9 +6,11 @@ class SubmitButton extends StatelessWidget {
     super.key,
     required this.label,
     this.onTap,
+    this.isLoading = false,
   });
   final String label;
   final void Function()? onTap;
+  final bool isLoading;
 
   @override
   Widget build(BuildContext context) {
@@ -21,10 +23,19 @@ class SubmitButton extends StatelessWidget {
             color: kPremaryColor,
             borderRadius: BorderRadius.all(Radius.circular(12))),
         child: Center(
-            child: Text(
-          label,
-          style: const TextStyle(fontSize: 17, fontWeight: FontWeight.w500),
-        )),
+            child: isLoading
+                ? const SizedBox(
+                    width: 25,
+                    height: 25,
+                    child: CircularProgressIndicator(
+                      color: Colors.black,
+                    ),
+                  )
+                : Text(
+                    label,
+                    style: const TextStyle(
+                        fontSize: 17, fontWeight: FontWeight.w500),
+                  )),
       ),
     );
   }
