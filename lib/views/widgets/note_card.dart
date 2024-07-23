@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:pretty_notes/models/note_model.dart';
 
 class NoteCard extends StatelessWidget {
-  const NoteCard({super.key, this.onTap, required this.color});
+  const NoteCard({super.key, this.onTap, required this.note});
   final void Function()? onTap;
-  final Color color;
-
+  final NoteModel note;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -14,7 +14,7 @@ class NoteCard extends StatelessWidget {
         child: Container(
             padding: const EdgeInsets.symmetric(horizontal: 28, vertical: 8),
             decoration: BoxDecoration(
-              color: color,
+              color: Color(note.color),
               borderRadius: const BorderRadius.all(
                 Radius.circular(16),
               ),
@@ -24,14 +24,14 @@ class NoteCard extends StatelessWidget {
               children: [
                 ListTile(
                   contentPadding: const EdgeInsets.all(0),
-                  title: const Text(
-                    'Note Title',
-                    style: TextStyle(fontSize: 28, color: Colors.white),
+                  title: Text(
+                    note.title,
+                    style: const TextStyle(fontSize: 28, color: Colors.white),
                   ),
-                  subtitle: const Text(
-                    'Note Text kjklfg lkdjfg lkdjfglkjsd glkdjglk dglksdjgklds gldskjg sdglkjdsklg dslkjglksd glkdsjglk sdglksdjg ',
+                  subtitle: Text(
+                    note.subtitle,
                     overflow: TextOverflow.ellipsis,
-                    style: TextStyle(color: Colors.white38),
+                    style: const TextStyle(color: Colors.white38),
                   ),
                   trailing: IconButton(
                       padding: const EdgeInsets.all(8),
@@ -45,9 +45,9 @@ class NoteCard extends StatelessWidget {
                 const SizedBox(height: 10),
                 Row(
                   children: [
-                    const Text(
-                      'May, 22, 2024',
-                      style: TextStyle(color: Colors.white38),
+                    Text(
+                      note.date,
+                      style: const TextStyle(color: Colors.white38),
                     ),
                     const Spacer(),
                     IconButton(
