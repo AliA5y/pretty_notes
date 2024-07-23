@@ -52,7 +52,9 @@ class NoteCard extends StatelessWidget {
                     const Spacer(),
                     IconButton(
                         padding: const EdgeInsets.all(8),
-                        onPressed: () {},
+                        onPressed: () {
+                          note.delete();
+                        },
                         icon: const Icon(
                           Icons.delete,
                           size: 26,
