@@ -26,11 +26,13 @@ class NoteCard extends StatelessWidget {
                 ListTile(
                   contentPadding: const EdgeInsets.all(0),
                   title: Text(
+                    maxLines: 1,
                     note.title,
                     style: const TextStyle(fontSize: 28, color: Colors.white),
                   ),
                   subtitle: Text(
                     note.subtitle,
+                    maxLines: 2,
                     overflow: TextOverflow.ellipsis,
                     style: const TextStyle(color: Colors.white38),
                   ),
@@ -52,7 +54,6 @@ class NoteCard extends StatelessWidget {
                         color: Colors.white,
                       )),
                 ),
-                const SizedBox(height: 10),
                 Row(
                   children: [
                     Text(
