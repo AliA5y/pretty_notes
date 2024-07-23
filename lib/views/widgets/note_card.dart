@@ -9,7 +9,7 @@ class NoteCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 6),
+      padding: const EdgeInsets.symmetric(vertical: 6),
       child: GestureDetector(
         onTap: () {},
         child: Container(
