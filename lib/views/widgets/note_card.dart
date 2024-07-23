@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pretty_notes/models/note_model.dart';
+import 'package:pretty_notes/views/edit_note_view.dart';
 
 class NoteCard extends StatelessWidget {
   const NoteCard({super.key, this.onTap, required this.note});
@@ -35,7 +36,16 @@ class NoteCard extends StatelessWidget {
                   ),
                   trailing: IconButton(
                       padding: const EdgeInsets.all(8),
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => EditNoteView(
+                              note: note,
+                            ),
+                          ),
+                        );
+                      },
                       icon: const Icon(
                         Icons.edit,
                         size: 26,
