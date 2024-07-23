@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pretty_notes/cubits/notes_cubit/notes_cubit.dart';
 import 'package:pretty_notes/models/note_model.dart';
+import 'package:pretty_notes/views/display_note_view.dart';
 import 'package:pretty_notes/views/widgets/note_card.dart';
 
 class NotesListView extends StatelessWidget {
@@ -19,6 +20,13 @@ class NotesListView extends StatelessWidget {
           itemCount: notes.length,
           itemBuilder: (context, index) {
             return NoteCard(
+              onTap: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) =>
+                            ViewNoteView(note: notes[index])));
+              },
               note: notes[index],
             );
           },

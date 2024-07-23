@@ -6,12 +6,13 @@ class NoteCard extends StatelessWidget {
   const NoteCard({super.key, this.onTap, required this.note});
   final void Function()? onTap;
   final NoteModel note;
+
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 6),
       child: GestureDetector(
-        onTap: () {},
+        onTap: onTap,
         child: Container(
             padding: const EdgeInsets.symmetric(horizontal: 28, vertical: 8),
             decoration: BoxDecoration(
