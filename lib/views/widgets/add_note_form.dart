@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:pretty_notes/cubits/add_note_cubit/add_note_cubit.dart';
 import 'package:pretty_notes/views/widgets/custom_text_form_field.dart';
 import 'package:pretty_notes/views/widgets/submit_button.dart';
 
@@ -17,42 +19,57 @@ class _AddNoteFormState extends State<AddNoteForm> {
   String? title, content;
   @override
   Widget build(BuildContext context) {
-    return Form(
-      autovalidateMode: autovalidateMode,
-      key: formKey,
-      child: SingleChildScrollView(
-        child: Column(
-          children: [
-            CustomTextFormField(
-              onSaved: (value) {
-                title = value;
-              },
-              hint: 'Note title',
+    return BlocConsumer<AddNoteCubit, AddNoteState>(
+      listener: (context, state) {
+        if (state is AddNoteFailur) {
+          print('Operation failed: ${state.errMessage}');
+        }
+        if (state is AddNoteSuccess) {
+          Navigator.pop(context);
+        }
+      },
+      builder: (context, state) {
+        return AbsorbPointer(
+          absorbing: state is AddNoteLoading ? true : false,
+          child: Form(
+            autovalidateMode: autovalidateMode,
+            key: formKey,
+            child: SingleChildScrollView(
+              child: Column(
+                children: [
+                  CustomTextFormField(
+                    onSaved: (value) {
+                      title = value;
+                    },
+                    hint: 'Note title',
+                  ),
+                  const SizedBox(height: 16),
+                  CustomTextFormField(
+                    onSaved: (value) {
+                      content = value;
+                    },
+                    hint: 'Note content',
+                    maxLength: 12,
+                  ),
+                  const SizedBox(height: 16),
+                  SubmitButton(
+                    label: 'Add Note',
+                    onTap: () {
+                      if (formKey.currentState!.validate()) {
+                        formKey.currentState!.save();
+                      } else {
+                        autovalidateMode = AutovalidateMode.always;
+                        setState(() {});
+                      }
+                    },
+                  ),
+                  const SizedBox(height: 10),
+                ],
+              ),
             ),
-            const SizedBox(height: 16),
-            CustomTextFormField(
-              onSaved: (value) {
-                content = value;
-              },
-              hint: 'Note content',
-              maxLength: 12,
-            ),
-            const SizedBox(height: 16),
-            SubmitButton(
-              label: 'Add Note',
-              onTap: () {
-                if (formKey.currentState!.validate()) {
-                  formKey.currentState!.save();
-                } else {
-                  autovalidateMode = AutovalidateMode.always;
-                  setState(() {});
-                }
-              },
-            ),
-            const SizedBox(height: 10),
-          ],
-        ),
-      ),
+          ),
+        );
+      },
     );
   }
 }
