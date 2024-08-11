@@ -17,18 +17,20 @@ class NotesListView extends StatelessWidget {
             BlocProvider.of<NotesCubit>(context).notes ?? [];
         return ListView.builder(
           padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 0),
-          itemCount: notes.length,
+          itemCount: notes.length + 1,
           itemBuilder: (context, index) {
-            return NoteItemCard(
-              onTap: () {
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) =>
-                            ViewNoteView(note: notes[index])));
-              },
-              note: notes[index],
-            );
+            return index == notes.length
+                ? const SizedBox(height: 64)
+                : NoteItemCard(
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) =>
+                                  ViewNoteView(note: notes[index])));
+                    },
+                    note: notes[index],
+                  );
           },
         );
       },
