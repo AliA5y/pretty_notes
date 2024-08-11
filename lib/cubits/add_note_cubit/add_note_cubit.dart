@@ -1,9 +1,8 @@
 import 'dart:developer';
 
-import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hive_flutter/hive_flutter.dart';
-import 'package:meta/meta.dart';
 import 'package:pretty_notes/constants.dart';
 import 'package:pretty_notes/models/note_model.dart';
 

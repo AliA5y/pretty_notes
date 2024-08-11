@@ -24,9 +24,7 @@ class _AddNoteFormState extends State<AddNoteForm> {
   Widget build(BuildContext context) {
     return BlocConsumer<AddNoteCubit, AddNoteState>(
       listener: (context, state) {
-        if (state is AddNoteFailur) {
-          print('Operation failed: ${state.errMessage}');
-        }
+        if (state is AddNoteFailur) {}
         if (state is AddNoteSuccess) {
           Navigator.pop(context);
         }
