@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pretty_notes/constants.dart';
-import 'package:pretty_notes/cubits/notes_cubit/notes_cubit.dart';
 import 'package:pretty_notes/views/home_view_body.dart';
 import 'package:pretty_notes/views/widgets/add_note_sheet.dart';
 
