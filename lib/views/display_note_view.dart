@@ -12,7 +12,7 @@ class ViewNoteView extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         leading: Padding(
-          padding: const EdgeInsets.all(4),
+          padding: const EdgeInsets.only(top: 4, bottom: 5, left: 16),
           child: ActionBottun(
             icon: Icons.arrow_back_ios,
             onTap: () {
