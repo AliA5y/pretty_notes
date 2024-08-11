@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pretty_notes/constants.dart';
 import 'package:pretty_notes/cubits/add_note_cubit/add_note_cubit.dart';
+import 'package:pretty_notes/views/widgets/color_item.dart';
 
 class ColorsList extends StatefulWidget {
   const ColorsList({
@@ -17,42 +18,22 @@ class _ColorsListState extends State<ColorsList> {
 
   @override
   Widget build(BuildContext context) {
-    return ListView.builder(
-      itemCount: colors.length,
-      scrollDirection: Axis.horizontal,
-      itemBuilder: (context, index) {
-        return GestureDetector(
-            onTap: () {
-              currentIndex = index;
-              BlocProvider.of<AddNoteCubit>(context).noteColor = colors[index];
-              setState(() {});
-            },
-            child: ColorItem(
-                color: colors[index], isSelected: currentIndex == index));
-      },
-    );
-  }
-}
-
-class ColorItem extends StatelessWidget {
-  const ColorItem({
-    super.key,
-    required this.isSelected,
-    required this.color,
-  });
-  final bool isSelected;
-  final Color color;
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 4),
-      child: CircleAvatar(
-        radius: 38,
-        backgroundColor: isSelected ? Theme.of(context).highlightColor : color,
-        child: CircleAvatar(
-          radius: 32,
-          backgroundColor: color,
-        ),
+    return SizedBox(
+      height: 80,
+      child: ListView.builder(
+        itemCount: colors.length,
+        scrollDirection: Axis.horizontal,
+        itemBuilder: (context, index) {
+          return GestureDetector(
+              onTap: () {
+                currentIndex = index;
+                BlocProvider.of<AddNoteCubit>(context).noteColor =
+                    colors[index];
+                setState(() {});
+              },
+              child: ColorItem(
+                  color: colors[index], isSelected: currentIndex == index));
+        },
       ),
     );
   }

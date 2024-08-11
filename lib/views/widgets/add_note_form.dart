@@ -55,10 +55,7 @@ class _AddNoteFormState extends State<AddNoteForm> {
                     maxLength: 12,
                   ),
                   const SizedBox(height: 16),
-                  const SizedBox(
-                    height: 80,
-                    child: ColorsList(),
-                  ),
+                  const ColorsList(),
                   const SizedBox(height: 16),
                   SubmitButton(
                     isLoading: state is AddNoteLoading,
