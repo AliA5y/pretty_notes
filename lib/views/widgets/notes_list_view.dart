@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pretty_notes/cubits/notes_cubit/notes_cubit.dart';
 import 'package:pretty_notes/models/note_model.dart';
 import 'package:pretty_notes/views/display_note_view.dart';
-import 'package:pretty_notes/views/widgets/note_card.dart';
+import 'package:pretty_notes/views/widgets/note_item_card.dart';
 
 class NotesListView extends StatelessWidget {
   const NotesListView({super.key});
@@ -19,7 +19,7 @@ class NotesListView extends StatelessWidget {
           padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 0),
           itemCount: notes.length,
           itemBuilder: (context, index) {
-            return NoteCard(
+            return NoteItemCard(
               onTap: () {
                 Navigator.push(
                     context,

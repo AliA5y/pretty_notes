@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:pretty_notes/models/note_model.dart';
 import 'package:pretty_notes/views/edit_note_view.dart';
 
-class NoteCard extends StatelessWidget {
-  const NoteCard({super.key, this.onTap, required this.note});
+class NoteItemCard extends StatelessWidget {
+  const NoteItemCard({super.key, this.onTap, required this.note});
   final void Function()? onTap;
   final NoteModel note;
 
