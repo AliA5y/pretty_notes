@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:pretty_notes/cubits/notes_cubit/notes_cubit.dart';
 import 'package:pretty_notes/models/note_model.dart';
 import 'package:pretty_notes/views/edit_note_view.dart';
 
@@ -66,6 +68,7 @@ class NoteItemCard extends StatelessWidget {
                         padding: const EdgeInsets.all(8),
                         onPressed: () {
                           note.delete();
+                          BlocProvider.of<NotesCubit>(context).triggerRefresh();
                         },
                         icon: const Icon(
                           Icons.delete,

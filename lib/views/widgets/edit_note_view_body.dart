@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pretty_notes/constants.dart';
+import 'package:pretty_notes/cubits/notes_cubit/notes_cubit.dart';
 import 'package:pretty_notes/models/note_model.dart';
 import 'package:pretty_notes/views/widgets/custom_text_form_field.dart';
 import 'package:pretty_notes/views/widgets/edit_note_color_list.dart';
@@ -32,6 +34,7 @@ class _EditNoteViewBodyState extends State<EditNoteViewBody> {
               widget.note.color = colors[newColorIndex!].value;
             }
             widget.note.save();
+            BlocProvider.of<NotesCubit>(context).triggerRefresh();
             Navigator.pop(context);
           },
           mainActionIcon: Icons.check,
