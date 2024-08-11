@@ -6,6 +6,7 @@ import 'package:intl/intl.dart';
 import 'package:pretty_notes/constants.dart';
 import 'package:pretty_notes/cubits/add_note_cubit/add_note_cubit.dart';
 import 'package:pretty_notes/models/note_model.dart';
+import 'package:pretty_notes/views/widgets/colors_list.dart';
 import 'package:pretty_notes/views/widgets/custom_text_form_field.dart';
 import 'package:pretty_notes/views/widgets/submit_button.dart';
 
@@ -55,6 +56,11 @@ class _AddNoteFormState extends State<AddNoteForm> {
                     },
                     hint: 'Note content',
                     maxLength: 12,
+                  ),
+                  const SizedBox(height: 16),
+                  const SizedBox(
+                    height: 80,
+                    child: ColorsList(),
                   ),
                   const SizedBox(height: 16),
                   SubmitButton(
